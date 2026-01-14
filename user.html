@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>QA – Levels & Skills Matrix</title>
+<style>
+ input[type="button"]{
+ background-color: #0144ae;
+ width: 50px;
+ height: 50px;
+ }y
+ff:has(input[type="checkbox"]:checked)
+ input[type="checkbox"]:not(:checked) {
+ pointer-events: none;
+ opacity: 0.6; /* feedback visuel */
+}
+.rr {
+ margin: 20px 0;
+ width: 100%;
+ max-width: 400px;
+ margin-left: auto;
+ margin-right: auto;
+ transition: transform 0.3s ease;
+}
+nav img {
+ height: 50px;
+ width: auto;
+}
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+ background-color:white;
+ min-height: 100vh;
+ display: flex;
+ flex-direction: column;
+}
+.rr:hover {
+ transform: translateY(-2px);
+}
+ input[type="button"] {
+ width: 100%;
+ padding: 22px 30px;
+ font-size: 1.2rem;
+ font-weight: 600;
+ border: none;
+ border-radius: 14px;
+ cursor: pointer;
+ transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+ text-transform: uppercase;
+ letter-spacing: 1px;
+ box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+ color: rgb(255, 255, 255);
+ position: relative;
+ overflow: hidden;
+}
+input[type="button"]::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0));
+ z-index: 1;
+}
+a:first-of-type input[type="button"] {
+ background: linear-gradient(135deg, #3b82f6 0%, rgb(2, 45, 162) 100%);
+}
+a:last-of-type input[type="button"] {
+ background: linear-gradient(135deg, #1784c8 0%, rgb(2, 45, 162) 100%);
+}
+input[type="button"]:hover {
+ transform: translateY(-4px);
+ box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+input[type="button"]:active {
+ transform: translateY(-1px);
+ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+@keyframes fadeInUp {
+ from {
+ opacity: 0;
+ transform: translateY(30px);
+ }
+ to {
+ opacity: 1;
+ transform: translateY(0);
+ }
+}
+ #retour{
+ width: 50px;
+ height: 50px;
+ }
+ :root{
+ --border:#9b9b9b;
+ --header:#d9d9d9;
+ --cat-bg:#f3f3f3;
+ --level-bg:#fff4a3;
+ --nk-bg:#efefef;
+ --text:#222;
+ --brand:#ffffff;
+ }
+ @media (max-width: 480px) {
+ .levels-table {
+ width: 100%;
+ font-size: 13px;
+ }
+ .levels-table td {
+ padding: 10px 12px;
+ }}
+td, th {
+ text-align: center;
+ vertical-align: middle;
+}
+ html{ box-sizing:border-box }
+ *,*::before,*::after{ box-sizing:inherit }
+ body{
+ margin:0;
+ font-family: Arial, Helvetica, sans-serif;
+ color:var(--text);
+ background:#fff;
+ line-height:1.35;
+ }
+ nav{
+ position:sticky; top:0; z-index:10;
+ display:flex; align-items:center; gap:12px;
+ padding:8px 16px;
+ background:var(--brand);
+ color:#fff;
+ border-bottom:1px solid rgba(255,255,255,.25);
+ }
+ nav img{
+ height: 50px; width:auto; display:block;
+ }
+ .brand-title{
+ font-weight:700; font-size:16px;
+ }
+ .page{ padding:16px; }
+ .section-title{
+ margin:18px 0 10px;
+ font-size:18px; font-weight:700;
+ }
+ .vh{
+ position:absolute !important;
+ width:1px; height:1px; padding:0; margin:-1px;
+ overflow:hidden; clip:rect(0 0 0 0);
+ white-space:nowrap; border:0;
+ }
+ table.levels-table{
+ width:100%;
+ border-collapse:collapse;
+ table-layout:auto;
+ border:2px solid #000;
+ margin-bottom:22px;
+ background:#fff;
+ }
+ col.lv-role { width: clamp(180px, 35%, 360px); }
+ col.lv-desc { width: auto; }
+ .levels-table td,
+ .levels-table th{
+ border:1px solid #000;
+ padding:10px 12px;
+ font-size:14px;
+ vertical-align:middle;
+ overflow-wrap:anywhere;
+ word-break:break-word;
+ }
+ .row-yellow td{ background:yellow }
+ .row-orange td{ background:orange; }
+ .row-green td{ background:green; }
+ .table-container{ overflow-x:auto; }
+ table.skills-matrix{
+ border-collapse: collapse;
+ width:100%;
+ table-layout:auto;
+ background:#fff;
+ }
+ col.cg-cat { width: clamp(120px, 18%, 240px); }
+ col.cg-skill { width: clamp(120px, 18%, 240px); }
+ col.cg-feat { width: auto; }
+ col.cg-nk { width: clamp(64px, 8%, 110px); }
+ col.cg-level { width: clamp(80px, 10%, 140px); }
+ col.cg-action{ width: clamp(90px, 10%, 160px); }
+ .skills-matrix th,
+ .skills-matrix td{
+ border:1px solid var(--border);
+ padding:6px 8px;
+ font-size:13px;
+ vertical-align:top;
+ overflow-wrap:anywhere;
+ word-break:break-word;
+ }
+ .skills-matrix thead th{
+ background:var(--header);
+ font-weight:700;
+ text-align:left;
+ }
+ .skills-matrix thead th.level{ text-align:center; }
+ .col-cat{ background:var(--cat-bg); font-weight:600; }
+ .col-nk{ text-align:center; background:var(--nk-bg); }
+ .col-level{ text-align:center; background:var(--level-bg); }
+ .section-start td,
+ .section-start th{ border-top:3px solid #666; }
+ @media (max-width:680px){
+ .skills-matrix th,.skills-matrix td{ font-size:12px; padding:6px; }
+ .levels-table td{ font-size:13px; }
+ }
+
+</style>
+</head>
+<body>
+<nav role="banner">
+<img src="logo_forvia.png" alt="Logo de l'entreprise" /></nav><h3>Hello user!</h3>
+
+
+<form action="" class="ff">
+ <main class="page" id="content">
+  <h2 class="section-title">Levels</h2>
+
+  <table class="levels-table" aria-label="Levels table">
+    <colgroup>
+      <col class="lv-role"><col class="lv-desc">
+    </colgroup>
+    <tbody>
+      <tr class="row-yellow">
+        <td>Junior Tester</td>
+        <td>Understands basics; needs guidance.</td>
+      </tr>
+      <tr class="row-orange">
+        <td>Mid-Level Tester</td>
+        <td>Can work independently on standard tasks.</td>
+      </tr>
+      <tr class="row-green">
+        <td>Senior Tester / Lead</td>
+        <td>Can mentor others; solves complex problems.</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 class="section-title">Skills Matrix – QA</h2>
+  <div class="table-container">
+    <table class="skills-matrix" aria-label="Matrice de compétences QA">
+      <colgroup>
+        <col class="cg-cat">
+        <col class="cg-skill">
+        <col class="cg-feat">
+        <col class="cg-nk">
+        <col class="cg-level">
+        <col class="cg-level">
+        <col class="cg-level">
+        <col class="cg-action">
+      </colgroup>
+
+      <thead>
+        <tr>
+          <th class="col-cat" scope="col">Skill Category</th>
+          <th class="col-skill" scope="col">Skill / Tool</th>
+          <th class="col-feat" scope="col">Features/Capabilities</th>
+          <th class="col-nk level" scope="col">No Knowledge</th>
+          <th class="col-level level" scope="col" style="background-color: yellow;">Junior Tester</th>
+          <th class="col-level level" scope="col" style="background-color: orange;">Mid-Level Tester</th>
+          <th class="col-level level" scope="col" style="background-color: green;">Senior Tester / Lead</th>
+          <th class="col-action" scope="col" style="background-color: #eca3dc;">Action plan</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr class="section-start">
+          <td class="col-cat" rowspan="10">Test Automation Tools</td>
+          <td class="col-skill" rowspan="6">UFT (Unified Functional Testing)</td>
+          <td>Object Repository (Shared & Local), Identify objects</td>
+          <td class="col-nk"><input type="radio" name="level_row_1"></td>
+          <td class="col-level"><input type="radio" name="level_row_1"></td>
+          <td class="col-level"><input type="radio" name="level_row_1"></td>
+          <td class="col-level"><input type="radio" name="level_row_1"></td>
+          <td class="col-action"><input type="radio" name="action_row_1"></td>
+        </tr>
+        <tr>
+          <td>Use Object Spy</td>
+          <td class="col-nk"><input type="radio" name="level_row_2"></td>
+          <td class="col-level"><input type="radio" name="level_row_2"></td>
+          <td class="col-level"><input type="radio" name="level_row_2"></td>
+          <td class="col-level"><input type="radio" name="level_row_2"></td>
+          <td><input type="radio" name="action_row_2"></td>
+        </tr>
+        <tr>
+          <td>VBScript Fundamentals: Variables, IF/Else, Loops, Functions, Dictionary, Classes, Error Handling</td>
+          <td class="col-nk"><input type="radio" name="level_row_3"></td>
+          <td class="col-level"><input type="radio" name="level_row_3"></td>
+          <td class="col-level"><input type="radio" name="level_row_3"></td>
+          <td class="col-level"><input type="radio" name="level_row_3"></td>
+          <td><input type="radio" name="action_row_3"></td>
+        </tr>
+        <tr>
+          <td>Data Driven Testing, Use Data Table (Global/Local)</td>
+          <td class="col-nk"><input type="radio" name="level_row_4"></td>
+          <td class="col-level"><input type="radio" name="level_row_4"></td>
+          <td class="col-level"><input type="radio" name="level_row_4"></td>
+          <td class="col-level"><input type="radio" name="level_row_4"></td>
+          <td><input type="radio" name="action_row_4"></td>
+        </tr>
+        <tr>
+          <td>Excel Interaction</td>
+          <td class="col-nk"><input type="radio" name="level_row_5"></td>
+          <td class="col-level"><input type="radio" name="level_row_5"></td>
+          <td class="col-level"><input type="radio" name="level_row_5"></td>
+          <td class="col-level"><input type="radio" name="level_row_5"></td>
+          <td><input type="radio" name="action_row_5"></td>
+        </tr>
+        <tr>
+          <td>Function Libraries / Modularization; ALM/QC Integration; Error Handling & Debugging; Test Execution & Reporting</td>
+          <td class="col-nk"><input type="radio" name="level_row_6"></td>
+          <td class="col-level"><input type="radio" name="level_row_6"></td>
+          <td class="col-level"><input type="radio" name="level_row_6"></td>
+          <td class="col-level"><input type="radio" name="level_row_6"></td>
+          <td><input type="radio" name="action_row_6"></td>
+        </tr>
+
+        <tr>
+          <td class="col-skill" rowspan="4">Test Automation Framework GTAF</td>
+          <td>C# Programming</td>
+          <td class="col-nk"><input type="radio" name="level_row_7"></td>
+          <td class="col-level"><input type="radio" name="level_row_7"></td>
+          <td class="col-level"><input type="radio" name="level_row_7"></td>
+          <td class="col-level"><input type="radio" name="level_row_7"></td>
+          <td><input type="radio" name="action_row_7"></td>
+        </tr>
+        <tr>
+          <td>Selenium Library</td>
+          <td class="col-nk"><input type="radio" name="level_row_8"></td>
+          <td class="col-level"><input type="radio" name="level_row_8"></td>
+          <td class="col-level"><input type="radio" name="level_row_8"></td>
+          <td class="col-level"><input type="radio" name="level_row_8"></td>
+          <td><input type="radio" name="action_row_8"></td>
+        </tr>
+        <tr>
+          <td>Playwright Library; POM; Singleton; design patterns</td>
+          <td class="col-nk"><input type="radio" name="level_row_9"></td>
+          <td class="col-level"><input type="radio" name="level_row_9"></td>
+          <td class="col-level"><input type="radio" name="level_row_9"></td>
+          <td class="col-level"><input type="radio" name="level_row_9"></td>
+          <td><input type="radio" name="action_row_9"></td>
+        </tr>
+        <tr>
+          <td>GTAF CORE; Locators; ALM/QC Integration</td>
+          <td class="col-nk"><input type="radio" name="level_row_10"></td>
+          <td class="col-level"><input type="radio" name="level_row_10"></td>
+          <td class="col-level"><input type="radio" name="level_row_10"></td>
+          <td class="col-level"><input type="radio" name="level_row_10"></td>
+          <td><input type="radio" name="action_row_10"></td>
+        </tr>
+
+        <tr class="section-start">
+          <td class="col-cat" rowspan="3">Virtual Machine (VM) Setup</td>
+          <td class="col-skill" rowspan="3">Tool Installation/Repair</td>
+          <td>UFT install / Repair</td>
+          <td class="col-nk"><input type="radio" name="level_row_11"></td>
+          <td class="col-level"><input type="radio" name="level_row_11"></td>
+          <td class="col-level"><input type="radio" name="level_row_11"></td>
+          <td class="col-level"><input type="radio" name="level_row_11"></td>
+          <td><input type="radio" name="action_row_11"></td>
+        </tr>
+        <tr>
+          <td>ALM install / Repair</td>
+          <td class="col-nk"><input type="radio" name="level_row_12"></td>
+          <td class="col-level"><input type="radio" name="level_row_12"></td>
+          <td class="col-level"><input type="radio" name="level_row_12"></td>
+          <td class="col-level"><input type="radio" name="level_row_12"></td>
+          <td><input type="radio" name="action_row_12"></td>
+        </tr>
+        <tr>
+          <td>Visual Studio setup & test execution; New automation tool integration</td>
+          <td class="col-nk"><input type="radio" name="level_row_13"></td>
+          <td class="col-level"><input type="radio" name="level_row_13"></td>
+          <td class="col-level"><input type="radio" name="level_row_13"></td>
+          <td class="col-level"><input type="radio" name="level_row_13"></td>
+          <td><input type="radio" name="action_row_13"></td>
+        </tr>
+
+        <tr class="section-start">
+          <td class="col-cat" rowspan="2">CI/CD</td>
+          <td class="col-skill" rowspan="2">DevOps</td>
+          <td>Azure Pipelines</td>
+          <td class="col-nk"><input type="radio" name="level_row_14"></td>
+          <td class="col-level"><input type="radio" name="level_row_14"></td>
+          <td class="col-level"><input type="radio" name="level_row_14"></td>
+          <td class="col-level"><input type="radio" name="level_row_14"></td>
+          <td><input type="radio" name="action_row_14"></td>
+        </tr>
+        <tr>
+          <td>Git / Version Control</td>
+          <td class="col-nk"><input type="radio" name="level_row_15"></td>
+          <td class="col-level"><input type="radio" name="level_row_15"></td>
+          <td class="col-level"><input type="radio" name="level_row_15"></td>
+          <td class="col-level"><input type="radio" name="level_row_15"></td>
+          <td><input type="radio" name="action_row_15"></td>
+        </tr>
+
+        <tr class="section-start">
+          <td class="col-cat">Test Design Optimization</td>
+          <td class="col-skill"></td>
+          <td>Understanding of Functional and Technical Requirements</td>
+          <td class="col-nk"><input type="radio" name="level_row_16"></td>
+          <td class="col-level"><input type="radio" name="level_row_16"></td>
+          <td class="col-level"><input type="radio" name="level_row_16"></td>
+          <td class="col-level"><input type="radio" name="level_row_16"></td>
+          <td><input type="radio" name="action_row_16"></td>
+        </tr>
+
+        <tr>
+          <td class="col-cat">Maintaining Automated Tests</td>
+          <td class="col-skill"></td>
+          <td>Regular Test Audits and Reviews</td>
+          <td class="col-nk"><input type="radio" name="level_row_17"></td>
+          <td class="col-level"><input type="radio" name="level_row_17"></td>
+          <td class="col-level"><input type="radio" name="level_row_17"></td>
+          <td class="col-level"><input type="radio" name="level_row_17"></td>
+          <td><input type="radio" name="action_row_17"></td>
+        </tr>
+
+        <tr class="section-start">
+          <td class="col-cat" rowspan="6">Soft Skills</td>
+          <td class="col-skill">Attention to Detail</td>
+          <td></td>
+          <td class="col-nk"><input type="radio" name="level_row_18"></td>
+          <td class="col-level"><input type="radio" name="level_row_18"></td>
+          <td class="col-level"><input type="radio" name="level_row_18"></td>
+          <td class="col-level"><input type="radio" name="level_row_18"></td>
+          <td><input type="radio" name="action_row_18"></td>
+        </tr>
+        <tr>
+          <td class="col-skill">Problem Solving</td>
+          <td></td>
+          <td class="col-nk"><input type="radio" name="level_row_19"></td>
+          <td class="col-level"><input type="radio" name="level_row_19"></td>
+          <td class="col-level"><input type="radio" name="level_row_19"></td>
+          <td class="col-level"><input type="radio" name="level_row_19"></td>
+          <td><input type="radio" name="action_row_19"></td>
+        </tr>
+        <tr>
+          <td class="col-skill">Communication</td>
+          <td></td>
+          <td class="col-nk"><input type="radio" name="level_row_20"></td>
+          <td class="col-level"><input type="radio" name="level_row_20"></td>
+          <td class="col-level"><input type="radio" name="level_row_20"></td>
+          <td class="col-level"><input type="radio" name="level_row_20"></td>
+          <td><input type="radio" name="action_row_20"></td>
+        </tr>
+        <tr>
+          <td class="col-skill">Documentation</td>
+          <td></td>
+          <td class="col-nk"><input type="radio" name="level_row_21"></td>
+          <td class="col-level"><input type="radio" name="level_row_21"></td>
+          <td class="col-level"><input type="radio" name="level_row_21"></td>
+          <td class="col-level"><input type="radio" name="level_row_21"></td>
+          <td><input type="radio" name="action_row_21"></td>
+        </tr>
+        <tr>
+          <td class="col-skill">Agile / Scrum</td>
+          <td></td>
+          <td class="col-nk"><input type="radio" name="level_row_22"></td>
+          <td class="col-level"><input type="radio" name="level_row_22"></td>
+          <td class="col-level"><input type="radio" name="level_row_22"></td>
+          <td class="col-level"><input type="radio" name="level_row_22"></td>
+          <td><input type="radio" name="action_row_22"></td>
+        </tr>
+        <tr>
+          <td class="col-skill">Mentoring & Training</td>
+          <td></td>
+          <td class="col-nk"><input type="radio" name="level_row_23"></td>
+          <td class="col-level"><input type="radio" name="level_row_23"></td>
+          <td class="col-level"><input type="radio" name="level_row_23"></td>
+          <td class="col-level"><input type="radio" name="level_row_23"></td>
+          <td><input type="radio" name="action_row_23"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+<button type="reset" class="btn-img" aria-label="Vider toutes les sélections">
+    <img src="reset.png" alt="Vider les sélections" id="retour">
+  </button>
+  <button type="submit" class="btn-img" aria-label="envoyer vers la base de données ">
+    <img src="send.jpg" alt="envoyer tous les selections" id="retour">
+  </button>
+ <footer>
+        <a href="choix.html"><img src="icon.avif" alt="" id="retour"></a>
+    </footer>
+</body>
+</html>
+</form>
